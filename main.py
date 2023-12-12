@@ -17,7 +17,7 @@ st.header('Please upload a chest X-ray image')
 file = st.file_uploader('', type=['jpeg', 'jpg', 'png'])
 
 # load classifier without compiling
-model_path = './model/PMAFP.h5'
+model_path = './model/PMA.h5'
 model = tf.keras.models.load_model(model_path, compile=False)
 
 # Manually compile the model
