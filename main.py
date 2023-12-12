@@ -1,9 +1,10 @@
 import streamlit as st
-import tensorflow as tf
+from keras.models import load_model
 from PIL import Image
 import numpy as np
 
 from util import classify, set_background
+
 
 set_background('./BG/bg.jpg')
 
@@ -16,12 +17,8 @@ st.header('Please upload a chest X-ray image')
 # upload file
 file = st.file_uploader('', type=['jpeg', 'jpg', 'png'])
 
-# load classifier without compiling
-model_path = './model/PMA.h5'
-model = tf.keras.models.load_model(model_path, compile=False)
-
-# Manually compile the model
-model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+# load classifier
+model = load_model('./model/PMA.h5')
 
 # load class names
 with open('./model/labels.txt', 'r') as f:
