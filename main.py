@@ -1,8 +1,9 @@
 import streamlit as st
-from keras.models import load_model
 from keras.optimizers import Adam
 from PIL import Image
 import numpy as np
+from tensorflow.keras.models import load_model
+
 
 from util import classify, set_background
 
