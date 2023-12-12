@@ -22,7 +22,7 @@ file = st.file_uploader('', type=['jpeg', 'jpg', 'png'])
 model = load_model('./model/PMA.h5')
 
 # Compile the model
-optimizer = Adam(lr=0.001)  # Adjust the learning rate as needed
+optimizer = Adam(lr=0.01)  # Adjust the learning rate as needed
 model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
 
 # Load class names
