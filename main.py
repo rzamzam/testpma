@@ -17,7 +17,8 @@ st.header('Please upload a chest X-ray image')
 file = st.file_uploader('', type=['jpeg', 'jpg', 'png'])
 
 # load classifier without compiling
-model = tf.keras.models.load_model('./model/PMAFP.h5', compile=False)
+model_path = './model/PMAFP.h5'
+model = tf.keras.models.load_model(model_path, compile=False)
 
 # Manually compile the model
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
