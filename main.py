@@ -23,9 +23,12 @@ model_path = './model/PMA.h5'
 try:
     model = load_model(model_path)
 
-    # Compile the model
-    opt = Adam(learning_rate=0.000001)
-    model.compile(optimizer=opt, loss='categorical_crossentropy', metrics=['accuracy'])
+    # Check if the model is compiled
+    if not model._is_compiled:
+        # Compile the model
+        opt = Adam(learning_rate=0.000001)
+        model.compile(optimizer=opt, loss='categorical_crossentropy', metrics=['accuracy'])
+        st.info("Model compiled successfully.")
 
 except OSError as e:
     st.error(f"Error loading the model: {e}")
