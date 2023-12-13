@@ -18,7 +18,7 @@ st.header('Please upload a chest X-ray image')
 file = st.file_uploader('', type=['jpeg', 'jpg', 'png'])
 
 # Load classifier
-model_path = './model/PMA.h5'
+model_path = './model/model2.h5'
 
 try:
     model = load_model(model_path)
