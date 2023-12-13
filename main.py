@@ -1,10 +1,8 @@
 import streamlit as st
 from keras.optimizers import Adam
 from PIL import Image
-import numpy as np
 from tensorflow.keras.models import load_model
-
-
+import tensorflow as tf
 from util import classify, set_background
 
 # Set background
@@ -20,11 +18,12 @@ st.header('Please upload a chest X-ray image')
 file = st.file_uploader('', type=['jpeg', 'jpg', 'png'])
 
 # Load classifier
-model = load_model('./model/PMA.h5')
+model_path = './model/PMA.h5'
+model = load_model(model_path)
 
 # Compile the model
-optimizer = Adam(lr=0.000001)  # Adjust the learning rate as needed
-model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
+opt = Adam(learning_rate=0.000001)
+model.compile(optimizer=opt, loss='categorical_crossentropy', metrics=['accuracy'])
 
 # Load class names
 with open('./model/labels.txt', 'r') as f:
