@@ -8,7 +8,7 @@ from tensorflow.keras.models import load_model
 from util import classify, set_background
 
 # Set background
-set_background('./model/bg1.jpg')
+set_background('./BG/bg1.jpg')
 
 # Set title
 st.title('Chest X-Ray Classification')
