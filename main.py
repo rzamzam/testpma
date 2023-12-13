@@ -11,7 +11,7 @@ from util import classify, set_background
 set_background('./BG/bg.jpg')
 
 # Set title
-st.title('Pneumonia covid classification')
+st.title('Chest X-Ray Classification')
 
 # Set header
 st.header('Please upload a chest X-ray image')
