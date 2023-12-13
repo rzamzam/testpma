@@ -21,7 +21,7 @@ file = st.file_uploader('', type=['jpeg', 'jpg', 'png'])
 model_path = './model/model2.h5'
 
 try:
-    model = load_model(model_path)
+    model = load_model(model_path, compile=False)
 
     # Check if the model is compiled
     if not model._is_compiled:
