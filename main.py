@@ -19,11 +19,17 @@ file = st.file_uploader('', type=['jpeg', 'jpg', 'png'])
 
 # Load classifier
 model_path = './model/PMA.h5'
-model = load_model(model_path)
 
-# Compile the model
-opt = Adam(learning_rate=0.000001)
-model.compile(optimizer=opt, loss='categorical_crossentropy', metrics=['accuracy'])
+try:
+    model = load_model(model_path)
+
+    # Compile the model
+    opt = Adam(learning_rate=0.000001)
+    model.compile(optimizer=opt, loss='categorical_crossentropy', metrics=['accuracy'])
+
+except OSError as e:
+    st.error(f"Error loading the model: {e}")
+    st.stop()
 
 # Load class names
 with open('./model/labels.txt', 'r') as f:
